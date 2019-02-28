@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+// import  { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import  { HashRouter as Router, Link, Route } from 'react-router-dom';
 import Home from './view/Home';
 import About from './view/About';
@@ -10,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>aicoder.com</h1>
-        <Router>
+        <Router hashType="noslash" basename="/app" forceRefresh={true}>
           <div>
             <Link to="/">首页</Link>|
             <Link to="/about">关于</Link>|
