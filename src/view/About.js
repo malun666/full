@@ -6,6 +6,11 @@ class About extends Component {
     return (
       <div>
         about!
+        <p>
+          ==={
+            this.props.location.pathname
+          }====
+        </p>
       </div>
     )
   }

@@ -15,13 +15,14 @@ class App extends Component {
           <div>
             <Link to="/">首页</Link>|
             <Link to="/about">关于</Link>|
-            <Link to="/product" replace>产品</Link>
+            <Link to="/product" replace>产品</Link>|
             <Link to={{
               pathname: '/product',
               search: '?key=laoma',
               hash: '#userHeader',
               state: { loginName: 'laoma,aicoder.com'}
-            }}>产品99</Link>
+            }}>产品99</Link>|
+
             <NavLink
               to="/product"
               // activeStyle={{color: 'red', fontSize: '30px'}}
