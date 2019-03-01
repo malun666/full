@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import { Link, Route } from 'react-router-dom';
+import  PorductDetail from  './PorductDetail';
 
 class Product extends Component {
   render () {
+    const { match } = this.props;
+    console.log(this.props);
     return (
       <div>
         product
@@ -11,7 +15,12 @@ class Product extends Component {
           :
           null
         } */}
-
+        <Link to={`${match.path}/1`}>产品1</Link> |
+        <Link to={`${match.path}/2`}>产品2</Link> |
+        <Link to={`${match.path}/3`}>产品3</Link>
+        <hr/>
+        <Route path={`${match.path}/:id`} component={ PorductDetail }>
+        </Route>
       </div>
     )
   }

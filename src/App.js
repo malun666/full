@@ -5,7 +5,6 @@ import  { HashRouter as Router, Link, Route, NavLink } from 'react-router-dom';
 import Home from './view/Home';
 import About from './view/About';
 import Product from './view/Product';
-import { red } from 'ansi-colors';
 
 class App extends Component {
   render() {
@@ -50,9 +49,8 @@ class App extends Component {
             <Route
               path="/product"
               children={ (props) => {
-                console.log(props);
                 return props.match ? 
-                  (<Product></Product>) 
+                  (<Product {...props}></Product>) 
                   : 
                   <p>没有匹配上Prodcut</p>
               }}            
