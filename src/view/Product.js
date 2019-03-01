@@ -5,12 +5,12 @@ class Product extends Component {
     return (
       <div>
         product
-        {
+        {/* {
           this.props.location.state ?
           <p>{ this.props.location.state.loginName }</p>
           :
           null
-        }
+        } */}
 
       </div>
     )

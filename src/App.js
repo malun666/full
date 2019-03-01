@@ -31,12 +31,35 @@ class App extends Component {
               产品NavLink
             </NavLink>
             <hr/>
+            {/* 第一种渲染方式 */}
             <Route path="/" exact component={Home}>
             </Route>
-            <Route path="/about" component={About}>
+            {/* <Route path="/about" component={About}>
+            </Route> */}
+            {/* 第二种渲染方式 */}
+            <Route
+              path="/about"
+              render={ (props) => {
+                return (
+                  <About {...props}></About>
+                )
+              }}
+            >
             </Route>
-            <Route path="/product" component={Product}>
+            {/* 第三种渲染方式 */}
+            <Route
+              path="/product"
+              children={ (props) => {
+                console.log(props);
+                return props.match ? 
+                  (<Product></Product>) 
+                  : 
+                  <p>没有匹配上Prodcut</p>
+              }}            
+            >
             </Route>
+            {/* <Route path="/product" component={Product}>
+            </Route> */}
           </div>
         </Router>
       </div>
