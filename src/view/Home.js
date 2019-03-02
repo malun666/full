@@ -7,7 +7,8 @@ class Home extends Component {
     return (
       <div>
         Home
-        <Prompt message="您是否要离开Home？"></Prompt>
+        {/* <Prompt message="您是否要离开Home？"></Prompt> */}
+        <Prompt when={true} message={ location => `您是否要跳转到${location.pathname}?`}></Prompt>
       </div>
     )
   }
