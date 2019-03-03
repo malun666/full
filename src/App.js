@@ -20,11 +20,12 @@ class App extends Component {
           <Route path="/" exact render={ () => <Redirect to="/app"></Redirect> }></Route>
           <Route path="/login" component={Login}></Route>
           <Route path="/app" render={ (props) => {
-            console.log(2);
             //校验用户是否已经登录
             if(this.checkUserState()) {
               return <Home {...props}></Home>
             }
+            // 记录一下用户输入的地址。然后用户登录成功之后再跳转回此地址。
+            sessionStorage.setItem('APP_LAST_URL', JSON.stringify(props.location));
             return <Redirect to="/login"></Redirect>
           }}></Route>
           <Route component={Eempty}></Route>
