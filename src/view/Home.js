@@ -3,6 +3,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Logo from '../assets/logo.png';
 import About from './About';
 import Product from './Product';
+import Count from './Count';
 class Home extends Component {
   logout = () => {
     // 清楚sessionStorage里面的用户登录的信息。
@@ -40,17 +41,16 @@ class Home extends Component {
         <main className="columns">
           <div className="menu-list column is-one-fifth has-background-info">
               <Link className="navbar-item" to="/app">首页</Link>
-              <br/>
               <Link className="navbar-item" to={ `${match.path}/product` }>产品</Link>
-              <br/>
               <Link className="navbar-item" to={ `${match.path}/cases` }>成功案例</Link>
-              <br/>
+              <Link className="navbar-item" to={ `${match.path}/count` }>Count</Link>
               <Link className="navbar-item" to={ `${match.path}/about` }>关于</Link>
           </div>
           <div className="column has-background-primary">
             <Switch>
               <Route path={`${match.path}/about`} component={About}></Route>
               <Route path={`${match.path}/product`} component={Product}></Route>
+              <Route path={`${match.path}/count`} component={Count}></Route>
               <Route render={ () => {
                 return (
                   <div className="hero">
