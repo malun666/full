@@ -4,7 +4,20 @@ import Logo from '../assets/logo.png';
 import About from './About';
 import Product from './Product';
 import Count from './Count';
+
+import store from '../store';
+
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Num: store.getState()
+    }
+
+    store.subscribe(() => {
+      this.setState({ Num: store.getState() })
+    })
+  }
   logout = () => {
     // 清楚sessionStorage里面的用户登录的信息。
     sessionStorage.clear();
@@ -63,7 +76,7 @@ class Home extends Component {
           </div>
         </main>
         <div className="footer has-backgroud-light">
-          版权所有@aicoder.com
+          版权所有@aicoder.com  ={ this.state.Num }=
         </div>
       </div>
     )
