@@ -4,6 +4,7 @@ import Logo from '../assets/logo.png';
 import About from './About';
 import Product from './Product';
 import Count from './Count';
+import UserList from './UserList';
 
 import store from '../store';
 
@@ -58,12 +59,14 @@ class Home extends Component {
               <Link className="navbar-item" to={ `${match.path}/cases` }>成功案例</Link>
               <Link className="navbar-item" to={ `${match.path}/count` }>Count</Link>
               <Link className="navbar-item" to={ `${match.path}/about` }>关于</Link>
+              <Link className="navbar-item" to={ `${match.path}/userlist` }>用列表管理</Link>
           </div>
           <div className="column has-background-primary">
             <Switch>
               <Route path={`${match.path}/about`} component={About}></Route>
               <Route path={`${match.path}/product`} component={Product}></Route>
               <Route path={`${match.path}/count`} component={Count}></Route>
+              <Route path={`${match.path}/userlist`} component={UserList}></Route>
               <Route render={ () => {
                 return (
                   <div className="hero">
