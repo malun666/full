@@ -8,11 +8,16 @@ class Count extends Component {
     }
 
     // 当store里面的state发生改变的时候，会自动触发绑定函数执行。
-    store.subscribe(() => {
+    // 返回值是一个函数，此函数执行后，会取消订阅。
+    this.state.unsubscribe = store.subscribe(() => {
       this.setState({
         Num: store.getState()
       })
     });
+  }
+
+  componentWillUnmount() {
+    this.state.unsubscribe();// 解除监听
   }
 
   addNum = () => {
