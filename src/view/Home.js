@@ -11,11 +11,11 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Num: store.getState()
+      Num: store.getState().Num
     }
 
     store.subscribe(() => {
-      this.setState({ Num: store.getState() })
+      this.setState({ Num: store.getState().Num })
     })
   }
   logout = () => {
