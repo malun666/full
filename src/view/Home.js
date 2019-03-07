@@ -5,7 +5,7 @@ import About from './About';
 import Product from './Product';
 import Count from './Count';
 import UserList from './UserList';
-
+import NewCount from './NewCount';
 import store from '../store';
 
 class Home extends Component {
@@ -58,6 +58,7 @@ class Home extends Component {
               <Link className="navbar-item" to={ `${match.path}/product` }>产品</Link>
               <Link className="navbar-item" to={ `${match.path}/cases` }>成功案例</Link>
               <Link className="navbar-item" to={ `${match.path}/count` }>Count</Link>
+              <Link className="navbar-item" to={ `${match.path}/newcount` }>NewCount</Link>
               <Link className="navbar-item" to={ `${match.path}/about` }>关于</Link>
               <Link className="navbar-item" to={ `${match.path}/userlist` }>用列表管理</Link>
           </div>
@@ -66,6 +67,7 @@ class Home extends Component {
               <Route path={`${match.path}/about`} component={About}></Route>
               <Route path={`${match.path}/product`} component={Product}></Route>
               <Route path={`${match.path}/count`} component={Count}></Route>
+              <Route path={`${match.path}/newcount`} component={NewCount}></Route>
               <Route path={`${match.path}/userlist`} component={UserList}></Route>
               <Route render={ () => {
                 return (
