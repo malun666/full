@@ -18,5 +18,11 @@ export const UserListActionCreators = {
       type: UserListActionTypes.ADD_USER,
       payload
     }
+  },
+  RemoveUserAction(payload) {
+    return {
+      type: UserListActionTypes.REMOVE_USER,
+      payload
+    }
   }
 }

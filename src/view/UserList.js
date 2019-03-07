@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import store from '../store';
 import { UserListActionCreators } from '../actions/UserListAction';
-import { Popconfirm } from 'antd';
+import { Popconfirm, message } from 'antd';
 
 class UserList extends Component {
   constructor(props) {
@@ -22,17 +22,25 @@ class UserList extends Component {
 
   componentDidMount() {
     // 加载数据
-    axios.get('http://yapi.demo.qunar.com/mock/7378/api/userlist')
+    axios.get('http://localhost:3009/userlist')
       .then(res => {
         // 放到store.state里面去。
         console.log(res.data)
         // 向store发送一个action，加载用户数据
-        store.dispatch(UserListActionCreators.LoadUserListAction(res.data.data.userlist))
+        store.dispatch(UserListActionCreators.LoadUserListAction(res.data))
       }); 
   }
 
   delUser = (id) => {
-    console.log(id);
+    axios.delete('http://localhost:3009/userlist/'+ id)
+      .then(res => {
+        // 提升删除成功！，把redux中的数据移除掉
+        message.info('删除成功！');
+        store.dispatch(UserListActionCreators.RemoveUserAction(id));
+      })
+      .catch(() => {
+        message.error('删除失败！请重试！');
+      })
   }
 
   render () {

@@ -6,6 +6,8 @@ export default function  UserListReducer(preState = [], action) {
       return action.payload;
     case UserListActionTypes.ADD_USER:
       return [...preState, action.payload]
+    case UserListActionTypes.REMOVE_USER:
+      return preState.filter(item => item.Id !== action.payload)
     default :
       return preState;
   }

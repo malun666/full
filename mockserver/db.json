@@ -9,14 +9,6 @@
       "Remark": "称大色"
     },
     {
-      "Id": "100002",
-      "UserName": "崔平",
-      "Address": "通化市",
-      "Phone": "13427423561",
-      "Del": false,
-      "Remark": "调别件定什"
-    },
-    {
       "Id": "100003",
       "UserName": "武娟",
       "Address": "西双版纳傣族自治州",
@@ -31,14 +23,6 @@
       "Phone": "17668743167",
       "Del": false,
       "Remark": "按程识如"
-    },
-    {
-      "Id": "100005",
-      "UserName": "龚磊",
-      "Address": "铁岭市",
-      "Phone": "13637713853",
-      "Del": true,
-      "Remark": "团属便引党"
     },
     {
       "Id": "100006",
