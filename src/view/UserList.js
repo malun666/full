@@ -32,15 +32,13 @@ class UserList extends Component {
   }
 
   delUser = (id) => {
-    axios.delete('http://localhost:3009/userlist/'+ id)
+    store.dispatch(UserListActionCreators.RemoveUserAsyncAction(id))
       .then(res => {
-        // 提升删除成功！，把redux中的数据移除掉
         message.info('删除成功！');
-        store.dispatch(UserListActionCreators.RemoveUserAction(id));
       })
-      .catch(() => {
+      .catch( () => {
         message.error('删除失败！请重试！');
-      })
+      });
   }
 
   render () {

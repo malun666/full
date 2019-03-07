@@ -1,3 +1,4 @@
+import axios from 'axios';
 export const UserListActionTypes = {
   LOAD_USERLIST: 'LOAD_USERLIST',
   ADD_USER: 'ADD_USER',
@@ -23,6 +24,15 @@ export const UserListActionCreators = {
     return {
       type: UserListActionTypes.REMOVE_USER,
       payload
+    }
+  },
+  RemoveUserAsyncAction(payload) {
+    return function (dispatch, getState) {
+      return axios.delete('http://localhost:3009/userlist/'+ payload)
+      .then(res => {
+        // 提升删除成功！，把redux中的数据移除掉
+        dispatch(UserListActionCreators.RemoveUserAction(payload));
+      });
     }
   }
 }
