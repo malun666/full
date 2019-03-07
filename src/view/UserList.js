@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import store from '../store';
 import { UserListActionCreators } from '../actions/UserListAction';
+import { Popconfirm } from 'antd';
 
 class UserList extends Component {
   constructor(props) {
@@ -30,6 +31,10 @@ class UserList extends Component {
       }); 
   }
 
+  delUser = (id) => {
+    console.log(id);
+  }
+
   render () {
     return (
       <div>
@@ -43,6 +48,7 @@ class UserList extends Component {
             <th>电话</th>
             <th>是否删除</th>
             <th>备注</th>
+            <th>编辑</th>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +60,14 @@ class UserList extends Component {
               <td>{ item.Phone }</td>
               <td>{ item.Del ? '是' : '否' }</td>
               <td>{ item.Remark }</td>
+              <td>
+                <button className="button is-primary">编辑</button>
+                &nbsp;
+                <Popconfirm title="您确认要删除吗？" okText="删除" cancelText="取消" onConfirm={ () => this.delUser(item.Id) }>
+                  <button 
+                    className="button is-danger">删除</button>
+                </Popconfirm>
+              </td>
             </tr>
            )}
         </tbody>
