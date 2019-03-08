@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { UserListActionCreators } from '../actions/UserListAction';
 import UserRow from '../components/UserRow';
+import AddUser from '../components/AddUser';
 
 function mapStateToProps(state) {
   return {
@@ -26,6 +27,7 @@ class NewUserList extends Component {
     return (
       <div>
         <h3 className="title">用户列表</h3>
+        <AddUser></AddUser>
         <table className="table is-striped is-hoverable is-bordered is-fullwidth">
           <thead>
             <tr>
