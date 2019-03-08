@@ -14,6 +14,14 @@ export const UserListActionCreators = {
       payload
     }
   },
+  LoadUserListAsyncAction() {
+    return (dispatch, getState) => {
+      axios.get('http://localhost:3009/userlist')
+        .then(res => {
+          dispatch(this.LoadUserListAction(res.data))
+        });
+    }
+  },
   AddUserAction(payload) {
     return {
       type: UserListActionTypes.ADD_USER,

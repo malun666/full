@@ -7,6 +7,7 @@ import Count from './Count';
 import UserList from './UserList';
 import NewCount from './NewCount';
 import store from '../store';
+import NewUserList from './NewUserList';
 
 class Home extends Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class Home extends Component {
               <Link className="navbar-item" to={ `${match.path}/newcount` }>NewCount</Link>
               <Link className="navbar-item" to={ `${match.path}/about` }>关于</Link>
               <Link className="navbar-item" to={ `${match.path}/userlist` }>用列表管理</Link>
+              <Link className="navbar-item" to={ `${match.path}/newuserlist` }>New用列表管理</Link>
           </div>
           <div className="column has-background-primary">
             <Switch>
@@ -69,6 +71,7 @@ class Home extends Component {
               <Route path={`${match.path}/count`} component={Count}></Route>
               <Route path={`${match.path}/newcount`} component={NewCount}></Route>
               <Route path={`${match.path}/userlist`} component={UserList}></Route>
+              <Route path={`${match.path}/newuserlist`} component={NewUserList}></Route>
               <Route render={ () => {
                 return (
                   <div className="hero">
