@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Popconfirm } from 'antd';
-
+import { message } from 'antd';
 class UserRow extends Component {
   
   state = {
@@ -33,7 +33,16 @@ class UserRow extends Component {
               <td> <input onChange={ this.hanlderChange } type="text" name="Remark" value={ EditUser.Remark } /></td>
               <td>
                 <button className="button is-primary"
-                  onClick={ () => this.props.updateUser(EditUser) }
+                  onClick={ () => this.props
+                    .updateUser(EditUser) 
+                    .then(res => {
+                      message.info('修改成功！');
+                      this.setState({isEdit: false});
+                    })
+                    .catch( () => {
+                      message.error('修改异常，请重试！');
+                    })
+                  }
                 >保存</button>
                 &nbsp;
                 <button className="button is-danger"
