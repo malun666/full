@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal } from 'antd';
+import { Modal, message } from 'antd';
 
 class AddUser extends Component {
   state = {
@@ -16,6 +16,17 @@ class AddUser extends Component {
     })
   }
 
+  getAddUser = () => {
+    return {
+      UserName: this.state.UserName,
+      Address: this.state.Address,
+      Remark: this.state.Remark,
+      Phone: this.state.Phone,
+      Id: Date.now(),
+      Del: false
+    }
+  }
+
   render () {
     return (
       <div>
@@ -28,6 +39,16 @@ class AddUser extends Component {
           cancelText="取消"
           visible={ this.state.visible }
           onCancel={ () => this.setState({visible: false})}
+          onOk={ 
+            () => this.props.addUser(this.getAddUser())
+                      .then(res => {
+                        message.info('添加成功！');
+                        this.setState({visible: false})
+                      })
+                      .catch(() => {
+                        message.error('添加失败！请重试！');
+                      })
+          }
         >
           <table className="table is-fullwidth">
             <tbody>

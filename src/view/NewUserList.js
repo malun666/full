@@ -14,7 +14,8 @@ function mapDispatchToProps(dispatch) {
   return {
     loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),
     delUser: (id) => dispatch(UserListActionCreators.RemoveUserAsyncAction(id)),
-    updateUser: (user) => dispatch(UserListActionCreators.UpdateUserAsynAction(user))
+    updateUser: (user) => dispatch(UserListActionCreators.UpdateUserAsynAction(user)),
+    addUser: (user) => dispatch(UserListActionCreators.AddUserAsynAction(user))
   };
 }
 
@@ -27,7 +28,7 @@ class NewUserList extends Component {
     return (
       <div>
         <h3 className="title">用户列表</h3>
-        <AddUser></AddUser>
+        <AddUser addUser={ this.props.addUser }></AddUser>
         <table className="table is-striped is-hoverable is-bordered is-fullwidth">
           <thead>
             <tr>

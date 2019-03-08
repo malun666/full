@@ -59,5 +59,9 @@ export const UserListActionCreators = {
               })
 
     }
+  },
+  AddUserAsynAction(payload) {
+    return (dispatch, getState) => axios.post('http://localhost:3009/userlist', payload)
+      .then(res => dispatch(this.AddUserAction(res.data)))
   }
 }
