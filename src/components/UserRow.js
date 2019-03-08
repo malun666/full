@@ -32,7 +32,9 @@ class UserRow extends Component {
               <td> 是否删除 <input onChange={ this.hanlderChange } type="checkbox" name="Del" checked={ EditUser.Del } /></td>
               <td> <input onChange={ this.hanlderChange } type="text" name="Remark" value={ EditUser.Remark } /></td>
               <td>
-                <button className="button is-primary">保存</button>
+                <button className="button is-primary"
+                  onClick={ () => this.props.updateUser(EditUser) }
+                >保存</button>
                 &nbsp;
                 <button className="button is-danger"
                   onClick={ () => this.setState({isEdit: false})}

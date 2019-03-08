@@ -13,7 +13,7 @@ function mapDispatchToProps(dispatch) {
   return {
     loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),
     delUser: (id) => dispatch(UserListActionCreators.RemoveUserAsyncAction(id)),
-    saveUser: (user) => dispatch(UserListActionCreators.UpdateUserAsyncAction(user))
+    updateUser: (user) => dispatch(UserListActionCreators.UpdateUserAsynAction(user))
   };
 }
 
@@ -40,7 +40,7 @@ class NewUserList extends Component {
           </thead>
           <tbody>
             {
-              this.props.UserList.map( (item, index) => <UserRow saveUser={ this.props.saveUser } delUser={ this.props.delUser } key={index} User={item}></UserRow>)
+              this.props.UserList.map( (item, index) => <UserRow updateUser={ this.props.updateUser } saveUser={ this.props.saveUser } delUser={ this.props.delUser } key={index} User={item}></UserRow>)
             }
           </tbody>
         </table>
