@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { UserListActionCreators } from '../actions/UserListAction';
+import UserRow from '../components/UserRow';
 
 function mapStateToProps(state) {
   return {
@@ -10,7 +11,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction())
+    loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),
+    delUser: (id) => dispatch(UserListActionCreators.RemoveUserAsyncAction(id)),
+    saveUser: (user) => dispatch(UserListActionCreators.UpdateUserAsyncAction(user))
   };
 }
 
@@ -23,7 +26,7 @@ class NewUserList extends Component {
     return (
       <div>
         <h3 className="title">用户列表</h3>
-        <table className="table is-striped is-hoverable is-bordered">
+        <table className="table is-striped is-hoverable is-bordered is-fullwidth">
           <thead>
             <tr>
               <th>ID</th>
@@ -37,17 +40,7 @@ class NewUserList extends Component {
           </thead>
           <tbody>
             {
-              this.props.UserList.map( (item, index) => <tr>
-                <td>{ item.Id }</td>
-                <td>{ item.UserName }</td>
-                <td>{ item.Address }</td>
-                <td>{ item.Phone }</td>
-                <td>{ item.Del ? '是' : '否' }</td>
-                <td>{ item.Remark }</td>
-                <td>
-                  <button className="button is-primary">编辑</button>
-                </td>
-              </tr>)
+              this.props.UserList.map( (item, index) => <UserRow saveUser={ this.props.saveUser } delUser={ this.props.delUser } key={index} User={item}></UserRow>)
             }
           </tbody>
         </table>

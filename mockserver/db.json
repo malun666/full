@@ -16,14 +16,7 @@
       "Del": true,
       "Remark": "照听色领"
     },
-    {
-      "Id": "100008",
-      "UserName": "戴洋",
-      "Address": "舟山市",
-      "Phone": "14997625646",
-      "Del": false,
-      "Remark": "住称按种手便除"
-    },
+    {},
     {
       "Id": "100009",
       "UserName": "蒋勇",
@@ -31,14 +24,6 @@
       "Phone": "15542506741",
       "Del": true,
       "Remark": "下单点里及亲传"
-    },
-    {
-      "Id": "100010",
-      "UserName": "蔡秀英",
-      "Address": "新乡市",
-      "Phone": "17933239630",
-      "Del": true,
-      "Remark": "学型格"
     }
   ]
 }
