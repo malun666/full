@@ -52,16 +52,16 @@ export const UserListActionCreators = {
   UpdateUserAsynAction(payload) {
     return (dispatch, getState) => {
       return axios
-              .put('http://localhost:3009/userlist/'+ payload.Id, payload)
-              .then(res => {
-                // 修改redux里面的数据
-                dispatch(this.UpdateUserAction(res.data));
-              })
-
+        .put('http://localhost:3009/userlist/'+ payload.Id, payload)
+        .then(res => {
+          // 修改redux里面的数据
+          dispatch(this.UpdateUserAction(res.data));
+        })
     }
   },
   AddUserAsynAction(payload) {
-    return (dispatch, getState) => axios.post('http://localhost:3009/userlist', payload)
+    return (dispatch, getState) => 
+      axios.post('http://localhost:3009/userlist', payload)
       .then(res => dispatch(this.AddUserAction(res.data)))
   }
 }
