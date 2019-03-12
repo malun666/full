@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+本项目为老马VIP3前端教程系列的React和ReactRouter及Redux部分的源码，框架由 [Create React App](https://github.com/facebook/create-react-app)构建。
+
+视频详情地址：[https://qtxh.ke.qq.com](https://qtxh.ke.qq.com)
 
 ## Available Scripts
 
